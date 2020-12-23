@@ -1,4 +1,4 @@
-def gitUrl = 'https://github.com/tkvarma-tw/contract-testing-pact'
+def gitUrl = 'https://github.com/tkvarma-tw/ContractTestingBoilerplate'
 
 // Main build and deploy job for consumer and provider each (continuous deployment case)
 ['age-consumer', 'date-provider'].each {
