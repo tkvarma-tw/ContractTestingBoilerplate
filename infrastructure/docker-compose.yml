@@ -15,7 +15,7 @@ services:
   pact_broker:
     image: dius/pact-broker:2.27.2-1
     ports:
-      - "80:80"
+      - "8282:8282"
     links:
       - postgres
     environment:
@@ -28,7 +28,7 @@ services:
     build:
       context: jenkins
     ports:
-      - "8080:8080"
+      - "80:80"
       - "50000:50000"
     volumes:
       - "./jenkins/jenkins_home:/var/jenkins_home"
