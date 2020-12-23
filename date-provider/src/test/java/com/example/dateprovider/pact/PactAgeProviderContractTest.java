@@ -20,13 +20,12 @@ import org.springframework.boot.web.server.LocalServerPort;
 @Provider("dateProvider")
 @Consumer("ageConsumer")
 @PactBroker(
-        host = "localhost",
-        port = "8282",
+        host = "pact_broker",
         consumerVersionSelectors = {
             @VersionSelector(tag = "dev"), @VersionSelector(tag = "master"), @VersionSelector(tag = "test")
         })
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class PactAgeProviderTest {
+public class PactAgeProviderContractTest {
 
     @TestTemplate
     @ExtendWith(PactVerificationInvocationContextProvider.class)

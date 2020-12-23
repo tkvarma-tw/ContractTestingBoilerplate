@@ -7,6 +7,12 @@
         <groupId>com.example</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <pact.version>3.5.24</pact.version>
+    </properties>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>age-consumer</artifactId>
@@ -43,19 +49,25 @@
             <artifactId>rest-assured</artifactId>
             <version>4.3.1</version>
         </dependency>
+        <dependency>
+            <groupId>au.com.dius</groupId>
+            <artifactId>pact-jvm-consumer-java8_2.12</artifactId>
+            <version>${pact.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
             <plugin>
-                <groupId>au.com.dius.pact.provider</groupId>
-                <artifactId>maven</artifactId>
-                <version>4.1.10</version>
+                <groupId>au.com.dius</groupId>
+                <artifactId>pact-jvm-provider-maven_2.12</artifactId>
+                <version>${pact.version}</version>
                 <configuration>
-                    <pactBrokerUrl>http://localhost:8282</pactBrokerUrl>
-                    <pactDirectory>target/pacts</pactDirectory>
-                    <projectVersion>1.0.0</projectVersion>
+                    <!-- pact_broker is the service name in docker-compose -->
+                    <pactBrokerUrl>http://pact_broker</pactBrokerUrl>
+                    <projectVersion>${pact.consumer.version}</projectVersion>
                     <tags>
-                        <tag>master</tag>
+                        <tag>${pact.tag}</tag>
                     </tags>
                 </configuration>
             </plugin>
