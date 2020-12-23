@@ -28,7 +28,7 @@ pipeline {
 
     stage ('Run Contract Tests') {
       steps {
-        dir('user-service') {
+        dir('date-provider') {
           sh "../mvnw clean test " +
                   "-Pcontract-tests " +
                   "-Dpact.provider.version=${PROD_VERSION} " +
