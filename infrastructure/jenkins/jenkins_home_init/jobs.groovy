@@ -63,7 +63,7 @@ pipelineJob("age-consumer-branch-with-removed-field") {
     }
 }
 // Provider job that only executes contract tests, usually triggered by webhook
-pipelineJob("user-service-run-contract-tests") {
+pipelineJob("date-provider-run-contract-tests") {
     definition {
         cpsScm {
             scm {
@@ -75,7 +75,7 @@ pipelineJob("user-service-run-contract-tests") {
                     extensions {}
                 }
             }
-            scriptPath("user-service/jenkins/Jenkinsfile-contract-tests")
+            scriptPath("date-provider/jenkins/Jenkinsfile-contract-tests")
         }
     }
 }
